@@ -10,7 +10,7 @@ export default function Register() {
       <input placeholder="senha" type="password" required />
       <input placeholder="nome" type="text" required />
       <input placeholder="foto" type="url" required />
-      <button type="submit">Entrar</button>
+      <button type="submit">Cadastrar</button>
       <Link>Não tem uma conta? Cadastre-se!</Link>
     </FormLogin>
   );

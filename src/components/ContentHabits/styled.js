@@ -46,11 +46,86 @@ export const Body = styled.div`
   margin-left: 17px;
   margin-right: 20px;
   p {
+    margin-top: 29px;
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
     font-size: 18px;
     line-height: 22px;
     color: #666666;
+  }
+`;
+export const AddHabit = styled.div`
+  width: 340px;
+  height: 180px;
+  background: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  input {
+    margin-left: 15px;
+    width: 290px;
+    height: 40px;
+    background: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    padding: 11px;
+    font-family: "Lexend Deca";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #dbdbdb;
+  }
+`;
+export const WeekButtons = styled.div`
+  display: flex;
+  justify-content: flex-start;
+  margin-left: 19px;
+  gap: 4px;
+  .buttons {
+    width: 30px;
+    height: 30px;
+    background: #ffffff;
+    border: 1px solid #d5d5d5;
+    border-radius: 5px;
+    font-family: "Lexend Deca";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #dbdbdb;
+  }
+`;
+export const Choices = styled.div`
+  display: flex;
+  justify-content: flex-end;
+  margin-right: 16px;
+  gap: 23px;
+  .cancel {
+    font-family: "Lexend Deca";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #52b6ff;
+    border: transparent;
+    background: #ffffff;
+  }
+  .save {
+    width: 84px;
+    height: 35px;
+    background: #52b6ff;
+    border-radius: 5px;
+    font-family: "Lexend Deca";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 20px;
+    text-align: center;
+    color: #ffffff;
+    border: transparent;
   }
 `;
