@@ -129,3 +129,27 @@ export const Choices = styled.div`
     border: transparent;
   }
 `;
+export const Habit = styled.div`
+  width: 340px;
+  height: 91px;
+  background: #ffffff;
+  border-radius: 5px;
+  display: flex;
+  flex-direction: column;
+`;
+export const Trash = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 11px;
+  margin-right: 10px;
+  h4 {
+    margin-left: 19px;
+    margin-bottom: 8px;
+    font-family: "Lexend Deca";
+    font-style: normal;
+    font-weight: 400;
+    font-size: 20px;
+    line-height: 25px;
+    color: #666666;
+  }
+`;

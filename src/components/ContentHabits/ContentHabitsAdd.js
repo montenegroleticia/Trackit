@@ -1,5 +1,4 @@
-import { Content, Header, Body, WeekButtons, Habit, Trash } from "./styled";
-import { BsTrash } from "react-icons/bs";
+import { Content, Header, Body, AddHabit, WeekButtons, Choices } from "./styled";
 
 export default function ContentHabitsAdd() {
   return (
@@ -9,11 +8,8 @@ export default function ContentHabitsAdd() {
         <button>+</button>
       </Header>
       <Body>
-        <Habit>
-          <Trash>
-            <h4>Ler um livro por mês</h4>
-            <BsTrash />
-          </Trash>
+        <AddHabit>
+          <input placeholder="nome do hábito" type="text" required />
           <WeekButtons>
             <button className="buttons">D</button>
             <button className="buttons">S</button>
@@ -23,7 +19,15 @@ export default function ContentHabitsAdd() {
             <button className="buttons">S</button>
             <button className="buttons">S</button>
           </WeekButtons>
-        </Habit>
+          <Choices>
+            <button className="cancel">Cancelar</button>
+            <button className="save">Salvar</button>
+          </Choices>
+        </AddHabit>
+        <p>
+          Você não tem nenhum hábito cadastrado ainda. Adicione um hábito para
+          começar a trackear!
+        </p>
       </Body>
     </Content>
   );
