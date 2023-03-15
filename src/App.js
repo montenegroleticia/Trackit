@@ -1,4 +1,4 @@
-import Login from "./components/Form/Form";
+import Login from "./pages/Login/Login";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 
 export default function App() {
