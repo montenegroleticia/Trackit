@@ -4,9 +4,14 @@ import Register from "./pages/Login/Register";
 import Habits from "./pages/Habits/Habits";
 import Today from "./pages/Today/Today"
 import Historic from "./pages/Historic/Historic";
+import ImageContext from "./Hook/context";
+import { useState } from "react";
 
 export default function App() {
+  const [profilerPic, setProfilerPic] = useState(null);
+
   return (
+    <ImageContext.Provider value={{profilerPic, setProfilerPic}} >
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<SingUp />} />
@@ -16,5 +21,6 @@ export default function App() {
         <Route path="/historico" element={<Historic />} />
       </Routes>
     </BrowserRouter>
+    </ImageContext.Provider>
   );
 }

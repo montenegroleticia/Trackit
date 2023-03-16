@@ -13,10 +13,11 @@ export default function Register() {
     password: "",
   });
   const [disableButton, setDisableButton] = useState(true);
+  const [disableInput, setDisableInput] = useState(false);
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (registerForm.email && registerForm.password > 0) {
+    if (registerForm.email && registerForm.password && registerForm.name && registerForm.image > 0) {
       setDisableButton(false);
     } else {
       setDisableButton(true);
@@ -38,6 +39,7 @@ export default function Register() {
     promise.catch((err) => {
       alert(err.response.data.response);
       setDisableButton(true);
+      setDisableInput(false);
     });
   }
 
@@ -53,6 +55,7 @@ export default function Register() {
         value={registerForm.email}
         onChange={handleRegister}
         required
+        disabled={disableInput}
         data-test="email-input"
       />
       <input
@@ -62,6 +65,7 @@ export default function Register() {
         value={registerForm.password}
         onChange={handleRegister}
         required
+        disabled={disableInput}
         data-test="password-input"
       />
       <input
@@ -71,6 +75,7 @@ export default function Register() {
         value={registerForm.name}
         onChange={handleRegister}
         required
+        disabled={disableInput}
         data-test="user-name-input"
       />
       <input
@@ -80,9 +85,10 @@ export default function Register() {
         value={registerForm.image}
         onChange={handleRegister}
         required
+        disabled={disableInput}
         data-test="user-image-input"
       />
-      <button type="submit" disabled={disableButton} data-test="signup-btn" >
+      <button type="submit" disabled={disableButton} onClick={()=> setDisableInput(true)} data-test="signup-btn" >
         Cadastrar
       </button>
       <Link to={`/`} data-test="login-link">Não tem uma conta? Cadastre-se!</Link>

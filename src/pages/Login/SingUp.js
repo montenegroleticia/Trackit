@@ -1,14 +1,17 @@
 import logo from "../../img/logo.png";
 import { Link, useNavigate } from "react-router-dom";
 import { FormLogin } from "./styled";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
+import ImageContext from "../../Hook/context";
 
 export default function Form() {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [disableButton, setDisableButton] = useState(true);
+  const [disableInput, setDisableInput] = useState(false);
   const navigate = useNavigate();
+  const { setProfilerPic } = useContext(ImageContext);
 
   useEffect(() => {
     if (loginForm.email && loginForm.password > 0) {
@@ -29,10 +32,12 @@ export default function Form() {
     promise.then((res) => {
       navigate("/hoje");
       console.log(res.data);
+      setProfilerPic(res.data.image);
     });
     promise.catch((err) => {
       alert(err.response.data.message);
       setDisableButton(true);
+      setDisableInput(false);
     });
   }
 
@@ -46,6 +51,7 @@ export default function Form() {
         value={loginForm.email}
         onChange={handleForm}
         required
+        disabled={disableInput}
         data-test="email-input"
       />
       <input
@@ -55,9 +61,10 @@ export default function Form() {
         value={loginForm.password}
         onChange={handleForm}
         required
+        disabled={disableInput}
         data-test="password-input"
       />
-      <button type="submit" disabled={disableButton} data-test="login-btn">
+      <button type="submit" disabled={disableButton} onClick={()=> setDisableInput(true)} data-test="login-btn" >
         Entrar
       </button>
       <Link to={`/cadastro`} data-test="signup-link">Não tem uma conta? Cadastre-se!</Link>
