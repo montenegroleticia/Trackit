@@ -13,8 +13,11 @@ export const Nav = styled.div`
   .logo {
     margin-left: 18px;
   }
-  .profilerPic{
+  .profilerPic {
     margin-right: 10px;
+    width: 51px;
+    height: 51px;
+    border-radius: 100px;
   }
 `;
 
