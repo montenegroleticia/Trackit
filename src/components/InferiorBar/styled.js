@@ -8,7 +8,7 @@ export const Inferior = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
-  h3 {
+  a {
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
@@ -16,6 +16,7 @@ export const Inferior = styled.div`
     line-height: 22px;
     text-align: center;
     color: #52b6ff;
+    text-decoration: none;
   }
 `;
 export const ProgressBar = styled.div`
