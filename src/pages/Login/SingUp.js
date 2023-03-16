@@ -64,7 +64,7 @@ export default function Form() {
         disabled={disableInput}
         data-test="password-input"
       />
-      <button type="submit" disabled={disableButton} onClick={()=> setDisableInput(true)} data-test="login-btn" >
+      <button type="submit" disabled={disableButton} onClick={setDisableInput(true)} data-test="login-btn" >
         Entrar
       </button>
       <Link to={`/cadastro`} data-test="signup-link">Não tem uma conta? Cadastre-se!</Link>
