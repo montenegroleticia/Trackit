@@ -2,16 +2,20 @@ import InferiorBar from "../../components/InferiorBar/InferiorBar";
 import NavBar from "../../components/NavBar/NavBar";
 import ContentToday from "../../components/ContentToday/ContentToday";
 import { Content, Header, Body } from "../../components/ContentToday/styled";
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
+import { Token } from '../../Hook/context';
 
-export default function Today({ token }) {
+export default function Today() {
   const [listHabitsToday, setListHabitsToday] = useState([]);
+  const { token } = useContext(Token);
 
   useEffect(() => {
     const config = {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
     };
     const promise = axios.get(`${URL_BASE}/today`, config);
     promise.then((res) => {

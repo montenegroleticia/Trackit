@@ -4,15 +4,16 @@ import { FormLogin } from "./styled";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
-import ImageContext from "../../Hook/context";
+import { ImageContext, Token } from "../../Hook/context";
 import { ThreeDots } from  'react-loader-spinner'
 
-export default function Form({setToken}) {
+export default function Form() {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [disableButton, setDisableButton] = useState(true);
   const [disableInput, setDisableInput] = useState(false);
-  const navigate = useNavigate();
   const { setProfilerPic } = useContext(ImageContext);
+  const { setToken} = useContext(Token);
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (loginForm.email && loginForm.password > 0) {

@@ -1,6 +1,6 @@
 import Nav from "./styled";
 import logoNav from "../../img/TrackIt.png";
-import ImageContext from "../../Hook/context";
+import { ImageContext } from '../../Hook/context';
 import { useContext } from "react";
 
 export default function NavBar() {

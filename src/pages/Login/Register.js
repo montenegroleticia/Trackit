@@ -47,7 +47,7 @@ export default function Register() {
     });
     promise.catch((err) => {
       console.log(err.response.data);
-      alert(err.response.data.response);
+      alert(err.response.data.message);
       setDisableButton(true);
       setDisableInput(false);
     });

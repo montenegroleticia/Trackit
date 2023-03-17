@@ -1,8 +1,9 @@
-import { useEffect, useState } from "react";
+import { useEffect, useState, useContext } from "react";
 import InferiorBar from "../../components/InferiorBar/InferiorBar";
 import NavBar from "../../components/NavBar/NavBar";
 import { URL_BASE } from "../../constants/url";
 import axios from "axios";
+import { Token } from "../../Hook/context";
 import {
   Content,
   Header,
@@ -13,13 +14,14 @@ import {
 } from "../../components/ContentHabits/styled";
 import ContentHabits from "../../components/ContentHabits/ContentHabits";
 
-export default function Habits({ token }) {
+export default function Habits() {
   const [listHabits, setListHabits] = useState();
   const [addHabit, setAddHabit] = useState(false);
+  const { token } = useContext(Token);
 
   useEffect(() => {
     const config = {
-      headers: { Authorization: `Bearer ${token}` },
+      headers: { "Authorization": `Bearer ${token}` },
     };
     const promise = axios.get(`${URL_BASE}/habits`, config);
     promise.then((res) => {
