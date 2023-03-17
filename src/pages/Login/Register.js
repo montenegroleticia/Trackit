@@ -17,7 +17,12 @@ export default function Register() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (registerForm.email && registerForm.password && registerForm.name && registerForm.image > 0) {
+    if (
+      registerForm.email &&
+      registerForm.password &&
+      registerForm.name &&
+      registerForm.image > 0
+    ) {
       setDisableButton(false);
     } else {
       setDisableButton(true);
@@ -88,10 +93,17 @@ export default function Register() {
         disabled={disableInput}
         data-test="user-image-input"
       />
-      <button type="submit" disabled={disableButton} onClick={setDisableInput(true)} data-test="signup-btn" >
+      <button
+        type="submit"
+        disabled={disableButton}
+        onClick={() => setDisableInput(true)}
+        data-test="signup-btn"
+      >
         Cadastrar
       </button>
-      <Link to={`/`} data-test="login-link">Não tem uma conta? Cadastre-se!</Link>
+      <Link to={`/`} data-test="login-link">
+        Não tem uma conta? Cadastre-se!
+      </Link>
     </FormLogin>
   );
 }
