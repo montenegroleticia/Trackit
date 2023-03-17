@@ -46,7 +46,6 @@ export const Body = styled.div`
   margin-left: 17px;
   margin-right: 20px;
   p {
-    margin-top: 29px;
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
@@ -63,6 +62,7 @@ export const AddHabit = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-bottom: 29px;
   input {
     margin-left: 15px;
     width: 290px;

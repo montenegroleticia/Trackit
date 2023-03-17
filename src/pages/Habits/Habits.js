@@ -14,7 +14,8 @@ import {
 import ContentHabits from "../../components/ContentHabits/ContentHabits";
 
 export default function Habits({ token }) {
-  const [listHabits, setListHabits] = useState([]);
+  const [listHabits, setListHabits] = useState();
+  const [addHabit, setAddHabit] = useState(false);
 
   useEffect(() => {
     const config = {
@@ -34,26 +35,38 @@ export default function Habits({ token }) {
       <Content>
         <Header>
           <h2>Meus hábitos</h2>
-          <button>+</button>
+          <button onClick={() => setAddHabit(true)}>+</button>
         </Header>
         <Body>
-          <AddHabit>
-            <input placeholder="nome do hábito" type="text" required />
-            <WeekButtons>
-              <button className="buttons">D</button>
-              <button className="buttons">S</button>
-              <button className="buttons">T</button>
-              <button className="buttons">Q</button>
-              <button className="buttons">Q</button>
-              <button className="buttons">S</button>
-              <button className="buttons">S</button>
-            </WeekButtons>
-            <Choices>
-              <button className="cancel">Cancelar</button>
-              <button className="save">Salvar</button>
-            </Choices>
-          </AddHabit>
-          {listHabits !== [] ? (
+          {addHabit === true ? (
+            <AddHabit>
+              <input placeholder="nome do hábito" type="text" required />
+              <WeekButtons>
+                <button className="buttons">D</button>
+                <button className="buttons">S</button>
+                <button className="buttons">T</button>
+                <button className="buttons">Q</button>
+                <button className="buttons">Q</button>
+                <button className="buttons">S</button>
+                <button className="buttons">S</button>
+              </WeekButtons>
+              <Choices>
+                <button
+                  onClick={() => setAddHabit(false)}
+                  type="button"
+                  className="cancel"
+                >
+                  Cancelar
+                </button>
+                <button type="submit" className="save">
+                  Salvar
+                </button>
+              </Choices>
+            </AddHabit>
+          ) : (
+            ""
+          )}
+          {listHabits ? (
             <ContentHabits listHabits={listHabits} />
           ) : (
             <p>
