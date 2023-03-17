@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
-import { ThreeDots } from  'react-loader-spinner'
+import { ThreeDots } from "react-loader-spinner";
 
 export default function Register() {
   const [registerForm, setRegisterForm] = useState({
@@ -22,7 +22,7 @@ export default function Register() {
       registerForm.email &&
       registerForm.password &&
       registerForm.name &&
-      registerForm.image > 0
+      registerForm.image !== ""
     ) {
       setDisableButton(false);
     } else {
@@ -37,12 +37,15 @@ export default function Register() {
   function sendForm(e) {
     e.preventDefault();
 
+    setDisableInput(true);
+
     const promise = axios.post(`${URL_BASE}/auth/sign-up`, registerForm);
     promise.then((res) => {
       console.log(res.data);
       navigate("/");
     });
     promise.catch((err) => {
+      console.log(err.response.data);
       alert(err.response.data.response);
       setDisableButton(true);
       setDisableInput(false);
@@ -88,6 +91,7 @@ export default function Register() {
         placeholder="foto"
         type="url"
         name="image"
+        pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
         value={registerForm.image}
         onChange={handleRegister}
         required
