@@ -44,5 +44,5 @@ const ResetStyle = createGlobalStyle`
 		border-collapse: collapse;
 		border-spacing: 0;
 	}
-`
+`;
 export default ResetStyle;
