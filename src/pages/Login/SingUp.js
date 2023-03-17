@@ -5,6 +5,7 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
 import ImageContext from "../../Hook/context";
+import { ThreeDots } from  'react-loader-spinner'
 
 export default function Form() {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
@@ -70,7 +71,20 @@ export default function Form() {
         onClick={() => setDisableInput(true)}
         data-test="login-btn"
       >
-        Entrar
+        {setDisableInput === true ? (
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#FFFFFF"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        ) : (
+          "Entrar"
+        )}
       </button>
       <Link to={`/cadastro`} data-test="signup-link">
         Não tem uma conta? Cadastre-se!
