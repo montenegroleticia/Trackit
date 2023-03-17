@@ -4,6 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import { useEffect, useState } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
+import { ThreeDots } from  'react-loader-spinner'
 
 export default function Register() {
   const [registerForm, setRegisterForm] = useState({
@@ -99,7 +100,20 @@ export default function Register() {
         onClick={() => setDisableInput(true)}
         data-test="signup-btn"
       >
-        Cadastrar
+        {setDisableInput === true ? (
+          <ThreeDots
+            height="80"
+            width="80"
+            radius="9"
+            color="#FFFFFF"
+            ariaLabel="three-dots-loading"
+            wrapperStyle={{}}
+            wrapperClassName=""
+            visible={true}
+          />
+        ) : (
+          "Cadastrar"
+        )}
       </button>
       <Link to={`/`} data-test="login-link">
         Não tem uma conta? Cadastre-se!
