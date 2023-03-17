@@ -1,15 +1,9 @@
-import { Content, Header, Body, WeekButtons, Habit, Trash } from "./styled";
+import { WeekButtons, Habit, Trash } from "./styled";
 import { BsTrash } from "react-icons/bs";
 
-export default function ContentHabitsAdd() {
+export default function ContentHabitsAdd({listHabits}) {
   return (
-    <Content>
-      <Header>
-        <h2>Meus hábitos</h2>
-        <button>+</button>
-      </Header>
-      <Body>
-        <Habit>
+         <Habit>
           <Trash>
             <h4>Ler um livro por mês</h4>
             <BsTrash />
@@ -24,7 +18,5 @@ export default function ContentHabitsAdd() {
             <button className="buttons">S</button>
           </WeekButtons>
         </Habit>
-      </Body>
-    </Content>
   );
 }

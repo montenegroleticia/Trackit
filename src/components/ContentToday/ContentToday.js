@@ -1,14 +1,8 @@
 import { BsCheck } from "react-icons/bs";
-import { Content, Header, Body, CardHabit, Infos } from "../ContentToday/styled";
+import { CardHabit, Infos } from "../ContentToday/styled";
 
 export default function ContentToday() {
   return (
-    <Content>
-      <Header>
-        <h2>Segunda, data</h2>
-        <p>Nenhum hábito concluído ainda</p>
-      </Header>
-      <Body>
         <CardHabit>
           <Infos>
             <h2>Ler um livro</h2>
@@ -19,7 +13,5 @@ export default function ContentToday() {
             <BsCheck />
           </button>
         </CardHabit>
-      </Body>
-    </Content>
   );
 }

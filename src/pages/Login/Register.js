@@ -41,6 +41,7 @@ export default function Register() {
 
     const promise = axios.post(`${URL_BASE}/auth/sign-up`, registerForm);
     promise.then((res) => {
+      setDisableButton(true);
       console.log(res.data);
       navigate("/");
     });
@@ -63,19 +64,21 @@ export default function Register() {
         title="Email invalido. Exemplo: (nome@dominio.com)"
         value={registerForm.email}
         onChange={handleRegister}
-        required
         disabled={disableInput}
+        required
         data-test="email-input"
       />
       <input
         placeholder="senha"
+        pattern="^(?=.*[a-zA-Z0-9]).{8,}$"
+        title="Senha com pelo menos 8 caracteres"
         type="password"
         name="password"
         value={registerForm.password}
         onChange={handleRegister}
-        required
         disabled={disableInput}
         data-test="password-input"
+        required
       />
       <input
         placeholder="nome"
@@ -83,8 +86,8 @@ export default function Register() {
         name="name"
         value={registerForm.name}
         onChange={handleRegister}
-        required
         disabled={disableInput}
+        required
         data-test="user-name-input"
       />
       <input
@@ -92,10 +95,11 @@ export default function Register() {
         type="url"
         name="image"
         pattern="^(http:\/\/www\.|https:\/\/www\.|http:\/\/|https:\/\/)?[a-z0-9]+([\-\.]{1}[a-z0-9]+)*\.[a-z]{2,5}(:[0-9]{1,5})?(\/.*)?$"
+        title="Digite uma url válida"
         value={registerForm.image}
         onChange={handleRegister}
-        required
         disabled={disableInput}
+        required
         data-test="user-image-input"
       />
       <button

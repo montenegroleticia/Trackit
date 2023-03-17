@@ -7,7 +7,7 @@ import { URL_BASE } from "../../constants/url";
 import ImageContext from "../../Hook/context";
 import { ThreeDots } from  'react-loader-spinner'
 
-export default function Form() {
+export default function Form({setToken}) {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [disableButton, setDisableButton] = useState(true);
   const [disableInput, setDisableInput] = useState(false);
@@ -34,6 +34,7 @@ export default function Form() {
       navigate("/hoje");
       console.log(res.data);
       setProfilerPic(res.data.image);
+      setToken(res.data.token);
     });
     promise.catch((err) => {
       alert(err.response.data.message);

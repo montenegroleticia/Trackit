@@ -9,15 +9,16 @@ import { useState } from "react";
 
 export default function App() {
   const [profilerPic, setProfilerPic] = useState(null);
+  const [token, setToken] = useState();
 
   return (
     <ImageContext.Provider value={{ profilerPic, setProfilerPic }}>
       <BrowserRouter>
         <Routes>
-          <Route path="/" element={<SingUp />} />
+          <Route path="/" element={<SingUp setToken={setToken} />} />
           <Route path="/cadastro" element={<Register />} />
-          <Route path="/habitos" element={<Habits />} />
-          <Route path="/hoje" element={<Today />} />
+          <Route path="/habitos" element={<Habits token={token} />} />
+          <Route path="/hoje" element={<Today token={token} />} />
           <Route path="/historico" element={<Historic />} />
         </Routes>
       </BrowserRouter>
