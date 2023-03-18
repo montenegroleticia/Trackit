@@ -21,7 +21,9 @@ export default function Habits() {
 
   useEffect(() => {
     const config = {
-      headers: { "Authorization": `Bearer ${token}` },
+      headers: {
+        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MDg4ODY3fQ.G32Uddmk5mEEnZsreC748HWadxVi_T5BGNlLxyk1uvA`,
+      },
     };
     const promise = axios.get(`${URL_BASE}/habits`, config);
     promise.then((res) => {
@@ -68,7 +70,7 @@ export default function Habits() {
           ) : (
             ""
           )}
-          {listHabits ? (
+          {listHabits > 0 ? (
             <ContentHabits listHabits={listHabits} />
           ) : (
             <p>
