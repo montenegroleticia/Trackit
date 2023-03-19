@@ -15,7 +15,7 @@ export default function Today() {
   const { token } = useContext(Token);
   const myDate = dayjs(new Date()).format("dddd, DD/MM/YYYY");
   const capitalizedDate = myDate.replace(/^\w/, (c) => c.toUpperCase());
-  const [habitsChek, setHabitsChek] = useState();
+  const [habitsChek, setHabitsChek] = useState([]);
 
   function doneHabit(id) {
     if (!habitsChek.includes(id)) {
