@@ -18,7 +18,8 @@ export default function Habits() {
   const [listHabits, setListHabits] = useState();
   const [addHabit, setAddHabit] = useState(false);
   const [habitForm, setHabitForm] = useState({ name: "", days: [] });
-  const { token } = useContext(Token);
+  const [isLoadingToken, setIsLoadingToken] = useState(true);
+  const { token, setToken } = useContext(Token);
 
   function handleHabitForm(e) {
     setHabitForm({ ...habitForm, [e.target.name]: e.target.value });
@@ -64,19 +65,25 @@ export default function Habits() {
   }
 
   useEffect(() => {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
+    if (isLoadingToken && token === undefined) {
+      setToken(JSON.parse(localStorage.getItem("token")));
+      setIsLoadingToken(false);
+    } else if (isLoadingToken && token) {
+      setIsLoadingToken(false);
+    } else {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
     const promise = axios.get(`${URL_BASE}/habits`, config);
     promise.then((res) => {
       setListHabits(res.data);
       console.log(res.data);
     });
     promise.catch((err) => console.log(err.response.data.message));
-  }, [token]);
+  }
+  }, [isLoadingToken, token, setToken]);
 
   return (
     <>

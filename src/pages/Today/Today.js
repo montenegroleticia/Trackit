@@ -29,20 +29,23 @@ export default function Today() {
       const updateHabitsCheck = habitsChek.filter((habit) => habit !== id);
       setHabitsChek(updateHabitsCheck);
       console.log(updateHabitsCheck);
-
-      const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
+    
+      const promise = axios.post(`${URL_BASE}/habits/${id}/uncheck`, {}, config);
       promise.then((res) => console.log(res.data));
       promise.catch((err) => alert(err.response.data.message));
+
     } else {
       const updateHabitsCheck = [...habitsChek, id];
       setHabitsChek(updateHabitsCheck);
-
+    
       const promise = axios.post(
-        `${URL_BASE}/habits/${id}/uncheck`,
+        `${URL_BASE}/habits/${id}/check`,
         {},
         config
       );
-      promise.then((res) => console.log(res.data));
+      promise.then((res) => {console.log(res.data);
+        window.location.reload();
+    });
       promise.catch((err) => alert(err.response.data.message));
     }
   }

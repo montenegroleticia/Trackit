@@ -1,9 +1,8 @@
-import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
 import { CardHabit, Infos } from "../ContentToday/styled";
 
+
 export default function ContentToday({ listHabitsToday, doneHabit }) {
-  const [check, setCheck] = useState();
 
   return (
     <>
@@ -19,12 +18,11 @@ export default function ContentToday({ listHabitsToday, doneHabit }) {
             </p>
           </Infos>
           <button
-            onClick={() => {
-              doneHabit(t.id);
-              setCheck(t.done === false ? `#ebebeb` : `#8FC549`);
+            onClick={() => doneHabit(t.id)}
+            style={{
+              backgroundColor: t.done === true ? "#8FC549" : "#ebebeb",
             }}
             data-test="today-habit-check-btn"
-            check={check}
           >
             <BsCheck />
           </button>
