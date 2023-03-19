@@ -1,10 +1,15 @@
 import Nav from "./styled";
 import logoNav from "../../img/TrackIt.png";
 import { ImageContext } from '../../Hook/context';
-import { useContext } from "react";
+import { useContext, useEffect } from "react";
 
 export default function NavBar() {
-  const { profilerPic } = useContext(ImageContext);
+  const { profilerPic, setProfilerPic } = useContext(ImageContext);
+
+  useEffect(() => {
+    const storedImage = JSON.parse(localStorage.getItem("ImageContext"));
+    setProfilerPic(storedImage);
+  }, [setProfilerPic]);
 
   return (
     <Nav  data-test="header">

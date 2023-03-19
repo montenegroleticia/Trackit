@@ -5,14 +5,14 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
 import { ImageContext, Token } from "../../Hook/context";
-import { ThreeDots } from  'react-loader-spinner'
+import { ThreeDots } from "react-loader-spinner";
 
 export default function Form() {
   const [loginForm, setLoginForm] = useState({ email: "", password: "" });
   const [disableButton, setDisableButton] = useState(true);
   const [disableInput, setDisableInput] = useState(false);
   const { setProfilerPic } = useContext(ImageContext);
-  const { setToken} = useContext(Token);
+  const { setToken } = useContext(Token);
   const navigate = useNavigate();
 
   useEffect(() => {
@@ -32,10 +32,10 @@ export default function Form() {
 
     const promise = axios.post(`${URL_BASE}/auth/login`, loginForm);
     promise.then((res) => {
-      const tokenStorage = JSON.stringify(res.token);
-      localStorage.setItem('token', tokenStorage);
-      setToken(JSON.parse(tokenStorage));
       console.log(res.data);
+      localStorage.setItem("token", JSON.stringify(res.data.token));
+      setToken(res.data.token);
+      localStorage.setItem("ImageContext", JSON.stringify(res.data.image));
       setProfilerPic(res.data.image);
       navigate("/hoje");
     });

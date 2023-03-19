@@ -35,7 +35,7 @@ export default function Habits() {
 
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
+        Authorization: `Bearer ${token}`,
       },
     };
 
@@ -51,7 +51,7 @@ export default function Habits() {
   function deleteHabit(id) {
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
+        Authorization: `Bearer ${token}`,
       },
     };
     const promise = axios.delete(`${URL_BASE}/habits/${id}`, config);
@@ -66,7 +66,7 @@ export default function Habits() {
   useEffect(() => {
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
+        Authorization: `Bearer ${token}`,
       },
     };
 
@@ -101,6 +101,16 @@ export default function Habits() {
                 name="name"
                 value={habitForm.name}
                 onChange={handleHabitForm}
+                onKeyDown={(e) => {
+                  const key = e.key;
+                  if (
+                    !/^\d$/.test(key) &&
+                    key !== "Backspace" &&
+                    key !== "Delete"
+                  ) {
+                    e.preventDefault();
+                  }
+                }}
                 required
                 data-test="habit-name-input"
               />

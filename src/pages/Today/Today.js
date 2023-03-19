@@ -16,13 +16,16 @@ export default function Today() {
   const myDate = dayjs(new Date()).format("dddd, DD/MM/YYYY");
   const capitalizedDate = myDate.replace(/^\w/, (c) => c.toUpperCase());
   const [habitsChek, setHabitsChek] = useState([]);
+  const [isLoadingToken, setIsLoadingToken] = useState(true);
 
   function doneHabit(id) {
-    if (!habitsChek.includes(id)) {
-      setHabitsChek([...habitsChek, id]);
+    if (habitsChek.includes(id)) {
+      const updateHabitsCheck = [...habitsChek, id];
+      setHabitsChek(updateHabitsCheck);
+      console.log(updateHabitsCheck);
       const config = {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
+          Authorization: `Bearer ${token}`,
         },
       };
       const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
@@ -33,7 +36,7 @@ export default function Today() {
     } else {
       const config = {
         headers: {
-          Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
+          Authorization: `Bearer ${token}`,
         },
       };
       const promise = axios.post(
@@ -49,22 +52,25 @@ export default function Today() {
   }
 
   useEffect(() => {
-    if(token === undefined){
-      setToken(JSON.parse(localStorage.getItem('token')));
+    if (isLoadingToken && token === undefined) {
+      setToken(JSON.parse(localStorage.getItem("token")));
+      setIsLoadingToken(false);
+    } else if (isLoadingToken && token) {
+      setIsLoadingToken(false);
+    } else {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const promise = axios.get(`${URL_BASE}/habits/today`, config);
+      promise.then((res) => {
+        setListHabitsToday(res.data);
+        console.log(res.data);
+      });
+      promise.catch((err) => console.log(err.response.data.message));
     }
-    const config = {
-      headers: {
-        "Authorization": `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`
-        //`Bearer` + JSON.parse(localStorage.getItem("token")).token
-      },
-    };
-    const promise = axios.get(`${URL_BASE}/habits/today`, config);
-    promise.then((res) => {
-      setListHabitsToday(res.data);
-      console.log(res.data);
-    });
-    promise.catch((err) => console.log(err.response.data.message));
-  }, [token, setToken]);
+  }, [isLoadingToken, token, setToken]);
 
   return (
     <>

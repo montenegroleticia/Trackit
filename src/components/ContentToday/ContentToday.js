@@ -21,7 +21,7 @@ export default function ContentToday({ listHabitsToday, doneHabit }) {
           <button
             onClick={() => {
               doneHabit(t.id);
-              setCheck(t.done === false ? `#ebebeb` : `#8FC549`)
+              setCheck(t.done === false ? `#ebebeb` : `#8FC549`);
             }}
             data-test="today-habit-check-btn"
             check={check}
