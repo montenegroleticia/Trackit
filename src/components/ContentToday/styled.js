@@ -48,7 +48,7 @@ export const CardHabit = styled.div`
   button {
     width: 69px;
     height: 69px;
-    background: #ebebeb;
+    background: ${ (props) => props.check };
     border: 1px solid #e7e7e7;
     border-radius: 5px;
     color: #ffffff;

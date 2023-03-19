@@ -1,11 +1,14 @@
+import { useState } from "react";
 import { BsCheck } from "react-icons/bs";
 import { CardHabit, Infos } from "../ContentToday/styled";
 
 export default function ContentToday({ listHabitsToday, doneHabit }) {
+  const [check, setCheck] = useState();
+
   return (
     <>
       {listHabitsToday.map((t) => (
-        <CardHabit key={t.id}>
+        <CardHabit data-test="today-habit-container" key={t.id}>
           <Infos>
             <h2 data-test="today-habit-name">{t.name}</h2>
             <p data-test="today-habit-sequence">
@@ -15,11 +18,15 @@ export default function ContentToday({ listHabitsToday, doneHabit }) {
               Seu recorde: {t.highestSequence} dias
             </p>
           </Infos>
-          <button>
-            <BsCheck
-              onClick={() => doneHabit(t.id)}
-              data-test="today-habit-check-btn"
-            />
+          <button
+            onClick={() => {
+              doneHabit(t.id);
+              setCheck(t.done === false ? `#ebebeb` : `#8FC549`)
+            }}
+            data-test="today-habit-check-btn"
+            check={check}
+          >
+            <BsCheck />
           </button>
         </CardHabit>
       ))}

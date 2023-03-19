@@ -12,8 +12,8 @@ export default function App() {
   const [token, setToken] = useState();
 
   return (
-    <ImageContext.Provider value={{ profilerPic, setProfilerPic }}>
-      <Token.Provider value={{ token, setToken }}>
+    <Token.Provider value={{ token, setToken }}>
+      <ImageContext.Provider value={{ profilerPic, setProfilerPic }}>
         <BrowserRouter>
           <Routes>
             <Route path="/" element={<SingUp />} />
@@ -23,7 +23,7 @@ export default function App() {
             <Route path="/historico" element={<Historic />} />
           </Routes>
         </BrowserRouter>
-      </Token.Provider>
-    </ImageContext.Provider>
+      </ImageContext.Provider>
+    </Token.Provider>
   );
 }

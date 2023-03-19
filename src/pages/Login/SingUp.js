@@ -32,10 +32,12 @@ export default function Form() {
 
     const promise = axios.post(`${URL_BASE}/auth/login`, loginForm);
     promise.then((res) => {
-      navigate("/hoje");
+      const tokenStorage = JSON.stringify(res.token);
+      localStorage.setItem('token', tokenStorage);
+      setToken(JSON.parse(tokenStorage));
       console.log(res.data);
       setProfilerPic(res.data.image);
-      setToken(res.data.token);
+      navigate("/hoje");
     });
     promise.catch((err) => {
       alert(err.response.data.message);
