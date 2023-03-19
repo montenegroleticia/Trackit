@@ -35,7 +35,7 @@ export default function Habits() {
 
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MDg4ODY3fQ.G32Uddmk5mEEnZsreC748HWadxVi_T5BGNlLxyk1uvA`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
       },
     };
 
@@ -51,7 +51,7 @@ export default function Habits() {
   function deleteHabit(id) {
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MDg4ODY3fQ.G32Uddmk5mEEnZsreC748HWadxVi_T5BGNlLxyk1uvA`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
       },
     };
     const promise = axios.delete(`${URL_BASE}/habits/${id}`, config);
@@ -66,7 +66,7 @@ export default function Habits() {
   useEffect(() => {
     const config = {
       headers: {
-        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MDg4ODY3fQ.G32Uddmk5mEEnZsreC748HWadxVi_T5BGNlLxyk1uvA`,
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MTg2OTU2fQ.RD-u__gmRzm9XBq-Oui_GysiayrgtnZuX_0HgcWQNG4`,
       },
     };
 
