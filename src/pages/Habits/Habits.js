@@ -101,16 +101,6 @@ export default function Habits() {
                 name="name"
                 value={habitForm.name}
                 onChange={handleHabitForm}
-                onKeyDown={(e) => {
-                  const key = e.key;
-                  if (
-                    !/^\d$/.test(key) &&
-                    key !== "Backspace" &&
-                    key !== "Delete"
-                  ) {
-                    e.preventDefault();
-                  }
-                }}
                 required
                 data-test="habit-name-input"
               />

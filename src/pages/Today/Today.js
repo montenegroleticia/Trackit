@@ -19,34 +19,30 @@ export default function Today() {
   const [isLoadingToken, setIsLoadingToken] = useState(true);
 
   function doneHabit(id) {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
     if (habitsChek.includes(id)) {
-      const updateHabitsCheck = [...habitsChek, id];
+      const updateHabitsCheck = habitsChek.filter((habit) => habit !== id);
       setHabitsChek(updateHabitsCheck);
       console.log(updateHabitsCheck);
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
+
       const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
-      promise.then((res) => {
-        console.log(res.data);
-      });
+      promise.then((res) => console.log(res.data));
       promise.catch((err) => alert(err.response.data.message));
     } else {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
+      const updateHabitsCheck = [...habitsChek, id];
+      setHabitsChek(updateHabitsCheck);
+
       const promise = axios.post(
         `${URL_BASE}/habits/${id}/uncheck`,
         {},
         config
       );
-      promise.then((res) => {
-        console.log(res.data);
-      });
+      promise.then((res) => console.log(res.data));
       promise.catch((err) => alert(err.response.data.message));
     }
   }
