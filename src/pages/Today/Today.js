@@ -63,7 +63,7 @@ export default function Today() {
       <Content>
         <Header>
           <h2 data-test="today">{capitalizedDate} </h2>
-          <p data-test="today-counter">Nenhum hábito concluído ainda</p>
+          <p data-test="today-counter">{listHabitsToday && listHabitsToday.length > 0 ? `% dos hábitos concluídos` : `Nenhum hábito concluído ainda`}</p>
         </Header>
         <Body>
           {listHabitsToday && listHabitsToday.length > 0 ? (
