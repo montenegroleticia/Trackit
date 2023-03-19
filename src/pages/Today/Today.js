@@ -6,17 +6,19 @@ import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
 import { Token } from "../../Hook/context";
-import dayjs from "dayjs";
-import "dayjs/locale/pt-br";
-dayjs.locale("pt-br");
 
 export default function Today() {
   const [listHabitsToday, setListHabitsToday] = useState([]);
   const { token, setToken } = useContext(Token);
-  const myDate = dayjs(new Date()).format("dddd, DD/MM/YYYY");
-  const capitalizedDate = myDate.replace(/^\w/, (c) => c.toUpperCase());
   const [habitsChek, setHabitsChek] = useState([]);
   const [isLoadingToken, setIsLoadingToken] = useState(true);
+  const today = new Date();
+
+  function formatDate(date) {
+    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
+    const locale = 'pt-BR';
+    return date.toLocaleDateString(locale, options);
+  }
 
   function doneHabit(id) {
     const config = {
@@ -76,7 +78,7 @@ export default function Today() {
       <NavBar />
       <Content>
         <Header>
-          <h2 data-test="today">{capitalizedDate} </h2>
+          <h2 data-test="today"> {formatDate(today)}</h2>
           <p data-test="today-counter">
             {listHabitsToday && listHabitsToday.length > 0
               ? `% dos hábitos concluídos`
