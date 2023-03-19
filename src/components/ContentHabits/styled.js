@@ -46,6 +46,7 @@ export const Body = styled.div`
   margin-left: 17px;
   margin-right: 20px;
   p {
+    margin-top: 29px;
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
@@ -54,7 +55,7 @@ export const Body = styled.div`
     color: #666666;
   }
 `;
-export const AddHabit = styled.div`
+export const AddHabit = styled.form`
   width: 340px;
   height: 180px;
   background: #ffffff;
@@ -62,7 +63,6 @@ export const AddHabit = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
-  margin-bottom: 29px;
   input {
     margin-left: 15px;
     width: 290px;
@@ -136,6 +136,7 @@ export const Habit = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin-top: 29px;
 `;
 export const Trash = styled.div`
   display: flex;

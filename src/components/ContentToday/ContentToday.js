@@ -1,17 +1,21 @@
 import { BsCheck } from "react-icons/bs";
 import { CardHabit, Infos } from "../ContentToday/styled";
 
-export default function ContentToday() {
+export default function ContentToday({ listHabitsToday, doneHabit }) {
   return (
-        <CardHabit>
+    <>
+      {listHabitsToday.map((t) => (
+        <CardHabit key={t.id}>
           <Infos>
-            <h2>Ler um livro</h2>
-            <p>Sequência atual: 3 dias</p>
-            <p>Seu recorde: 5 dias</p>
+            <h2>{t.name}</h2>
+            <p>Sequência atual: {t.currentSequence} dias</p>
+            <p>Seu recorde: {t.highestSequence} dias</p>
           </Infos>
           <button>
-            <BsCheck />
+            <BsCheck onClick={() => doneHabit(t.id)} />
           </button>
         </CardHabit>
+      ))}
+    </>
   );
 }

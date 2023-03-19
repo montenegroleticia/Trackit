@@ -1,11 +1,13 @@
 import { WeekButtons, Habit, Trash } from "./styled";
 import { BsTrash } from "react-icons/bs";
 
-export default function ContentHabitsAdd({listHabits}) {
+export default function ContentHabitsAdd({ listHabits, deleteHabit }) {
   return (
-         <Habit>
-          <Trash>
-            <h4>Ler um livro por mês</h4>
+    <>
+      {listHabits.map((h) => (
+        <Habit key={h.id}>
+          <Trash onClick={() => deleteHabit(h.id)}>
+            <h4>{h.name}</h4>
             <BsTrash />
           </Trash>
           <WeekButtons>
@@ -18,5 +20,7 @@ export default function ContentHabitsAdd({listHabits}) {
             <button className="buttons">S</button>
           </WeekButtons>
         </Habit>
+      ))}
+    </>
   );
 }

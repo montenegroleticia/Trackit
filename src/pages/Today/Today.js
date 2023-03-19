@@ -11,6 +11,19 @@ export default function Today() {
   const [listHabitsToday, setListHabitsToday] = useState([]);
   const { token } = useContext(Token);
 
+  function doneHabit(id) {
+    const config = {
+      headers: {
+        Authorization: `Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6ODQyMiwiaWF0IjoxNjc5MDg4ODY3fQ.G32Uddmk5mEEnZsreC748HWadxVi_T5BGNlLxyk1uvA`,
+      },
+    };
+    const promise = axios.post(`${URL_BASE}/habits/today/${id}`, config);
+    promise.then((res) => {
+      console.log(res.data);
+    });
+    promise.catch((err) => console.log(err.response.data.message));
+  }
+
   useEffect(() => {
     const config = {
       headers: {
@@ -33,8 +46,8 @@ export default function Today() {
           <p>Nenhum hábito concluído ainda</p>
         </Header>
         <Body>
-          {listHabitsToday > 0 ? (
-            <ContentToday listHabitsToday={listHabitsToday} />
+          {listHabitsToday && listHabitsToday.length > 0 ? (
+            <ContentToday listHabitsToday={listHabitsToday} doneHabit={doneHabit} />
           ) : (
             ""
           )}
