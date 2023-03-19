@@ -62,14 +62,15 @@ export default function Today() {
       <NavBar />
       <Content>
         <Header>
-          <h2>{capitalizedDate} </h2>
-          <p>Nenhum hábito concluído ainda</p>
+          <h2 data-test="today">{capitalizedDate} </h2>
+          <p data-test="today-counter">Nenhum hábito concluído ainda</p>
         </Header>
         <Body>
           {listHabitsToday && listHabitsToday.length > 0 ? (
             <ContentToday
               listHabitsToday={listHabitsToday}
               doneHabit={doneHabit}
+              data-test="today-habit-container"
             />
           ) : (
             ""

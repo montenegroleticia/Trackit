@@ -84,13 +84,17 @@ export default function Habits() {
       <Content>
         <Header>
           <h2>Meus hábitos</h2>
-          <button type="button" onClick={() => setAddHabit(true)}>
+          <button
+            type="button"
+            onClick={() => setAddHabit(true)}
+            data-test="habit-create-btn"
+          >
             +
           </button>
         </Header>
         <Body>
           {addHabit === true ? (
-            <AddHabit onSubmit={sendForm}>
+            <AddHabit onSubmit={sendForm} data-test="habit-create-container">
               <input
                 placeholder="nome do hábito"
                 type="text"
@@ -98,12 +102,14 @@ export default function Habits() {
                 value={habitForm.name}
                 onChange={handleHabitForm}
                 required
+                data-test="habit-name-input"
               />
               <WeekButtons>
                 <button
                   type="button"
                   className="buttons"
                   onClick={() => addDay(0)}
+                  data-test="habit-day"
                 >
                   D
                 </button>
@@ -111,6 +117,7 @@ export default function Habits() {
                   type="button"
                   className="buttons"
                   onClick={() => addDay(1)}
+                  data-test="habit-day"
                 >
                   S
                 </button>
@@ -118,6 +125,7 @@ export default function Habits() {
                   type="button"
                   className="buttons"
                   onClick={() => addDay(2)}
+                  data-test="habit-day"
                 >
                   T
                 </button>
@@ -125,6 +133,7 @@ export default function Habits() {
                   type="button"
                   className="buttons"
                   onClick={() => addDay(3)}
+                  data-test="habit-day"
                 >
                   Q
                 </button>
@@ -132,6 +141,7 @@ export default function Habits() {
                   type="button"
                   className="buttons"
                   onClick={() => addDay(4)}
+                  data-test="habit-day"
                 >
                   Q
                 </button>
@@ -139,6 +149,7 @@ export default function Habits() {
                   type="button"
                   className="buttons"
                   onClick={() => addDay(5)}
+                  data-test="habit-day"
                 >
                   S
                 </button>
@@ -146,6 +157,7 @@ export default function Habits() {
                   type="button"
                   className="buttons"
                   onClick={() => addDay(6)}
+                  data-test="habit-day"
                 >
                   S
                 </button>
@@ -155,10 +167,15 @@ export default function Habits() {
                   onClick={() => setAddHabit(false)}
                   type="button"
                   className="cancel"
+                  data-test="habit-create-cancel-btn"
                 >
                   Cancelar
                 </button>
-                <button type="submit" className="save">
+                <button
+                  type="submit"
+                  className="save"
+                  data-test="habit-create-save-btn"
+                >
                   Salvar
                 </button>
               </Choices>
