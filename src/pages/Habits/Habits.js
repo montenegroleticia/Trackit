@@ -20,9 +20,17 @@ export default function Habits() {
   const [habitForm, setHabitForm] = useState({ name: "", days: [] });
   const [isLoadingToken, setIsLoadingToken] = useState(true);
   const { token, setToken } = useContext(Token);
+  const [isNameValid, setIsNameValid] = useState(true);
 
   function handleHabitForm(e) {
+    const { name, value } = e.target;
     setHabitForm({ ...habitForm, [e.target.name]: e.target.value });
+
+    if (name === "name" && value.trim() === "") {
+      setIsNameValid(false);
+    } else {
+      setIsNameValid(true);
+    }
   }
 
   function addDay(day) {
@@ -33,6 +41,11 @@ export default function Habits() {
 
   function sendForm(e) {
     e.preventDefault();
+
+    if (!isNameValid) {
+      alert("Insira um nome para o hábito");
+      return;
+    }
 
     const config = {
       headers: {
