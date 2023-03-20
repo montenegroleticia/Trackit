@@ -4,9 +4,9 @@ export const Content = styled.div`
   margin-top: 70px;
   margin-bottom: 70px;
   width: 100vw;
-  min-height: 527px;
-  max-height: calc(100vh - 527px);
   background: #f2f2f2;
+  height: calc(100vh - 140px);
+  overflow: scroll;
 `;
 export const Header = styled.div`
   display: flex;

@@ -10,6 +10,7 @@ export const Nav = styled.div`
   justify-content: space-between;
   position: fixed;
   top: 0;
+  z-index: 1;
   .logo {
     margin-left: 18px;
   }
