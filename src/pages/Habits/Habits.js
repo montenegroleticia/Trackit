@@ -13,6 +13,7 @@ import {
   Choices,
 } from "../../components/ContentHabits/styled";
 import ContentHabits from "../../components/ContentHabits/ContentHabits";
+import { ThreeDots } from "react-loader-spinner";
 
 export default function Habits() {
   const [listHabits, setListHabits] = useState();
@@ -240,7 +241,20 @@ export default function Habits() {
                   disabled={disableInput}
                   data-test="habit-create-save-btn"
                 >
-                  Salvar
+                  {disableInput === true ? (
+                    <ThreeDots
+                      height="80"
+                      width="80"
+                      radius="9"
+                      color="#FFFFFF"
+                      ariaLabel="three-dots-loading"
+                      wrapperStyle={{}}
+                      wrapperClassName=""
+                      visible={true}
+                    />
+                  ) : (
+                    " Salvar"
+                  )}
                 </button>
               </Choices>
             </AddHabit>

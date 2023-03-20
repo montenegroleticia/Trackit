@@ -135,6 +135,9 @@ export const Choices = styled.div`
     text-align: center;
     color: #ffffff;
     border: transparent;
+    display: flex;
+    align-items: center;
+    justify-content: center;
   }
 `;
 export const Habit = styled.div`
