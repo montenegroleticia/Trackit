@@ -57,15 +57,22 @@ export default function ContentToday({ listHabitsToday }) {
             <h2 data-test="today-habit-name">{t.name}</h2>
             <Sequence>
               <p data-test="today-habit-sequence">Sequência atual:</p>
-              <p className={t.done === true ? "green" : ""}>
+              <p
+                data-test="today-habit-sequence"
+                className={t.done === true ? "green" : ""}
+              >
                 {t.currentSequence} dias
               </p>
             </Sequence>
             <Sequence>
               <p data-test="today-habit-record">Seu recorde:</p>
               <p
+                data-test="today-habit-record"
                 className={
-                  t.currentSequence === t.highestSequence && t.highestSequence !== 0 ? "green" : ""
+                  t.currentSequence === t.highestSequence &&
+                  t.highestSequence !== 0
+                    ? "green"
+                    : ""
                 }
               >
                 {t.highestSequence} dias
@@ -73,11 +80,11 @@ export default function ContentToday({ listHabitsToday }) {
             </Sequence>
           </Infos>
           <button
+            data-test="today-habit-check-btn"
             onClick={() => doneHabit(t.done, t.id)}
             style={{
               backgroundColor: t.done === true ? "#8FC549" : "#ebebeb",
             }}
-            data-test="today-habit-check-btn"
           >
             <BsCheck />
           </button>
