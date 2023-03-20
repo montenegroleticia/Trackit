@@ -65,7 +65,7 @@ export default function ContentToday({ listHabitsToday }) {
               <p data-test="today-habit-record">Seu recorde:</p>
               <p
                 className={
-                  t.currentSequence === t.highestSequence ? "green" : ""
+                  t.currentSequence === t.highestSequence && t.highestSequence !== 0 ? "green" : ""
                 }
               >
                 {t.highestSequence} dias
