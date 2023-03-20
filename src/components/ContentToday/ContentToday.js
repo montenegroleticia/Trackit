@@ -10,12 +10,10 @@ export default function ContentToday({ listHabitsToday }) {
   const { setPercentege } = useContext(Percentege);
 
   useEffect(() => {
-    const habitsCompleted = listHabitsToday.filter(
-      (habit) => habit.done
-    ).length;
+    const habitsCompleted = listHabitsToday.filter((habit) => habit.done).length;
     const totalHabits = listHabitsToday.length;
     const updatePercentege =
-      habitsCompleted > 0 ? (habitsCompleted / totalHabits) * 100 : 0;
+      habitsCompleted > 0 ? Math.round((habitsCompleted / totalHabits) * 100) : 0;
     setPercentege(updatePercentege);
   }, [listHabitsToday, setPercentege]);
 
