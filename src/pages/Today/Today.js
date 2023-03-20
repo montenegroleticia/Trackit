@@ -5,13 +5,14 @@ import { Content, Header, Body } from "../../components/ContentToday/styled";
 import { useEffect, useState, useContext } from "react";
 import axios from "axios";
 import { URL_BASE } from "../../constants/url";
-import { Token } from "../../Hook/context";
+import { Percentege, Token } from "../../Hook/context";
 
 export default function Today() {
   const [listHabitsToday, setListHabitsToday] = useState([]);
   const { token, setToken } = useContext(Token);
-  const [habitsChek, setHabitsChek] = useState([]);
   const [isLoadingToken, setIsLoadingToken] = useState(true);
+  const { percentege } = useContext(Percentege);
+
   const today = new Date();
 
   function formatDate(date) {
@@ -23,41 +24,6 @@ export default function Today() {
     };
     const locale = "pt-BR";
     return date.toLocaleDateString(locale, options);
-  }
-
-  function doneHabit(id) {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-
-    if ( habitsChek && !habitsChek.includes(id)) {
-      const updateHabitsCheck = [...habitsChek, id];
-      setHabitsChek(updateHabitsCheck);
-      console.log(updateHabitsCheck);
-
-      const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
-      promise.then((res) => {
-        console.log(res.data);
-        window.location.reload();
-      });
-      promise.catch((err) => alert(err.response.data.message));
-    } else {
-      const updateHabitsCheck = habitsChek.filter((habit) => habit !== id);
-      setHabitsChek(updateHabitsCheck);
-
-      const promise = axios.post(
-        `${URL_BASE}/habits/${id}/uncheck`,
-        {},
-        config
-      );
-      promise.then((res) => {
-        console.log(res.data);
-        window.location.reload();
-      });
-      promise.catch((err) => alert(err.response.data.message));
-    }
   }
 
   useEffect(() => {
@@ -89,16 +55,13 @@ export default function Today() {
           <h2 data-test="today"> {formatDate(today)}</h2>
           <p data-test="today-counter">
             {listHabitsToday && listHabitsToday.length > 0
-              ? `% dos hábitos concluídos`
+              ? `${percentege} % dos hábitos concluídos`
               : `Nenhum hábito concluído ainda`}
           </p>
         </Header>
         <Body>
           {listHabitsToday && listHabitsToday.length > 0 ? (
-            <ContentToday
-              listHabitsToday={listHabitsToday}
-              doneHabit={doneHabit}
-            />
+            <ContentToday listHabitsToday={listHabitsToday} />
           ) : (
             ""
           )}

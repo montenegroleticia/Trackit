@@ -1,8 +1,51 @@
 import { BsCheck } from "react-icons/bs";
 import { CardHabit, Infos } from "../ContentToday/styled";
+import { URL_BASE } from "../../constants/url";
+import axios from "axios";
+import { Percentege, Token } from "../../Hook/context";
+import { useEffect, useContext } from "react";
 
+export default function ContentToday({ listHabitsToday }) {
+  const { token } = useContext(Token);
+  const { setPercentege } = useContext(Percentege);
 
-export default function ContentToday({ listHabitsToday, doneHabit }) {
+  useEffect(() => {
+    const habitsCompleted = listHabitsToday.filter(
+      (habit) => habit.done
+    ).length;
+    const totalHabits = listHabitsToday.length;
+    const updatePercentege =
+      habitsCompleted > 0 ? (habitsCompleted / totalHabits) * 100 : 0;
+    setPercentege(updatePercentege);
+  }, [listHabitsToday, setPercentege]);
+
+  function doneHabit(done, id) {
+    const config = {
+      headers: {
+        Authorization: `Bearer ${token}`,
+      },
+    };
+
+    if (!done) {
+      const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
+      promise.then((res) => {
+        console.log(res.data);
+        window.location.reload();
+      });
+      promise.catch((err) => alert(err.response.data.message));
+    } else {
+      const promise = axios.post(
+        `${URL_BASE}/habits/${id}/uncheck`,
+        {},
+        config
+      );
+      promise.then((res) => {
+        console.log(res.data);
+        window.location.reload();
+      });
+      promise.catch((err) => alert(err.response.data.message));
+    }
+  }
 
   return (
     <>
@@ -18,7 +61,7 @@ export default function ContentToday({ listHabitsToday, doneHabit }) {
             </p>
           </Infos>
           <button
-            onClick={() => doneHabit(t.id)}
+            onClick={() => doneHabit(t.done, t.id)}
             style={{
               backgroundColor: t.done === true ? "#8FC549" : "#ebebeb",
             }}

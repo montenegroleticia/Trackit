@@ -2,15 +2,18 @@ import { Bar, ProgressBar, Inferior } from "./styled";
 import { Link } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from "react-circular-progressbar";
 import "react-circular-progressbar/dist/styles.css";
+import { useContext } from "react";
+import { Percentege } from "../../Hook/context";
 
 export default function InferiorBar() {
-  const percentage = 66;
+  const { percentege } = useContext(Percentege);
+
   return (
     <Bar data-test="menu">
       <ProgressBar>
         <Link to={"/hoje"} data-test="today-link">
           <CircularProgressbar
-            value={percentage}
+            value={percentege}
             text={`Hoje`}
             background
             backgroundPadding={6}

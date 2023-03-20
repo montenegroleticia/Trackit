@@ -21,6 +21,7 @@ export default function Habits() {
   const [isLoadingToken, setIsLoadingToken] = useState(true);
   const { token, setToken } = useContext(Token);
 
+
   function handleHabitForm(e) {
     setHabitForm({ ...habitForm, [e.target.name]: e.target.value });
   }
