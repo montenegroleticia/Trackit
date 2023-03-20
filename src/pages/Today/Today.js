@@ -23,7 +23,12 @@ export default function Today() {
       day: "numeric",
     };
     const locale = "pt-BR";
-    return date.toLocaleDateString(locale, options);
+    const formattedDate = date.toLocaleDateString(locale, options);
+
+    const firstLetter = formattedDate.slice(0, 1);
+    const restOfDate = formattedDate.slice(1);
+    const capitalizedFirstLetter = firstLetter.toUpperCase();
+    return capitalizedFirstLetter + restOfDate;
   }
 
   useEffect(() => {
@@ -53,8 +58,11 @@ export default function Today() {
       <Content>
         <Header>
           <h2 data-test="today"> {formatDate(today)}</h2>
-          <p data-test="today-counter" className={percentege > 0 ? 'green' : ''}>
-            { percentege > 0
+          <p
+            data-test="today-counter"
+            className={percentege > 0 ? "green" : ""}
+          >
+            {percentege > 0
               ? `${percentege} % dos hábitos concluídos`
               : `Nenhum hábito concluído ainda`}
           </p>
