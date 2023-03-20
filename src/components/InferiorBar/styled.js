@@ -8,6 +8,8 @@ export const Inferior = styled.div`
   display: flex;
   justify-content: space-around;
   align-items: center;
+  background-color: #FFFFFF;
+  z-index: 2;
   a {
     font-family: "Lexend Deca";
     font-style: normal;
@@ -24,6 +26,7 @@ export const ProgressBar = styled.div`
   height: 91px;
   position: fixed;
   bottom: 10px;
+  z-index: 3;
 `;
 export const Bar = styled.div`
   display: flex;
