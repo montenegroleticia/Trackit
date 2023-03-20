@@ -21,7 +21,6 @@ export default function Habits() {
   const [isLoadingToken, setIsLoadingToken] = useState(true);
   const { token, setToken } = useContext(Token);
 
-
   function handleHabitForm(e) {
     setHabitForm({ ...habitForm, [e.target.name]: e.target.value });
   }
@@ -51,18 +50,21 @@ export default function Habits() {
   }
 
   function deleteHabit(id) {
-    const config = {
-      headers: {
-        Authorization: `Bearer ${token}`,
-      },
-    };
-    const promise = axios.delete(`${URL_BASE}/habits/${id}`, config);
-    promise.then((res) => {
-      console.log(res.data);
-      setAddHabit(false);
-      window.location.reload();
-    });
-    promise.catch((err) => alert(err.response.data.message));
+    const confim = window.confirm("Deseja excluir esse ítem permanentemente?");
+    if (confim) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const promise = axios.delete(`${URL_BASE}/habits/${id}`, config);
+      promise.then((res) => {
+        console.log(res.data);
+        setAddHabit(false);
+        window.location.reload();
+      });
+      promise.catch((err) => alert(err.response.data.message));
+    }
   }
 
   useEffect(() => {
@@ -77,13 +79,13 @@ export default function Habits() {
           Authorization: `Bearer ${token}`,
         },
       };
-    const promise = axios.get(`${URL_BASE}/habits`, config);
-    promise.then((res) => {
-      setListHabits(res.data);
-      console.log(res.data);
-    });
-    promise.catch((err) => console.log(err.response.data.message));
-  }
+      const promise = axios.get(`${URL_BASE}/habits`, config);
+      promise.then((res) => {
+        setListHabits(res.data);
+        console.log(res.data);
+      });
+      promise.catch((err) => console.log(err.response.data.message));
+    }
   }, [isLoadingToken, token, setToken]);
 
   return (
