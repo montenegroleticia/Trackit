@@ -50,17 +50,19 @@ export default function Habits() {
   function sendForm(e) {
     e.preventDefault();
 
+    setDisableInput(true);
+
     if (!isNameValid) {
       alert("Insira um nome para o hábito");
+      setDisableInput(false);
       return;
     }
 
     if (habitForm.days.length === 0) {
       alert("Selecione pelo menos um dia da semana");
+      setDisableInput(false);
       return;
     }
-
-    setDisableInput(true);
 
     const config = {
       headers: {
