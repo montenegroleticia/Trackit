@@ -54,7 +54,7 @@ export default function Habits() {
       return;
     }
 
-    if(habitForm.days.length === 0){
+    if (habitForm.days.length === 0) {
       alert("Selecione pelo menos um dia da semana");
       return;
     }
@@ -73,9 +73,10 @@ export default function Habits() {
       setAddHabit(false);
       window.location.reload();
     });
-    promise.catch((err) => { 
+    promise.catch((err) => {
       setDisableInput(false);
-      alert(err.response.data.message)});
+      alert(err.response.data.message);
+    });
   }
 
   function deleteHabit(id) {
@@ -151,6 +152,7 @@ export default function Habits() {
                     habitForm.days.includes(0) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(0)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   D
@@ -161,6 +163,7 @@ export default function Habits() {
                     habitForm.days.includes(1) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(1)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   S
@@ -171,6 +174,7 @@ export default function Habits() {
                     habitForm.days.includes(2) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(2)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   T
@@ -181,6 +185,7 @@ export default function Habits() {
                     habitForm.days.includes(3) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(3)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   Q
@@ -191,6 +196,7 @@ export default function Habits() {
                     habitForm.days.includes(4) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(4)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   Q
@@ -201,6 +207,7 @@ export default function Habits() {
                     habitForm.days.includes(5) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(5)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   S
@@ -211,6 +218,7 @@ export default function Habits() {
                     habitForm.days.includes(6) ? "gray buttons" : "buttons"
                   }
                   onClick={() => addDay(6)}
+                  disabled={disableInput}
                   data-test="habit-day"
                 >
                   S
@@ -221,6 +229,7 @@ export default function Habits() {
                   onClick={() => setAddHabit(false)}
                   type="button"
                   className="cancel"
+                  disabled={disableInput}
                   data-test="habit-create-cancel-btn"
                 >
                   Cancelar
