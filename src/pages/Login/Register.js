@@ -38,17 +38,17 @@ export default function Register() {
     e.preventDefault();
 
     setDisableInput(true);
+    setDisableButton(true);
 
     const promise = axios.post(`${URL_BASE}/auth/sign-up`, registerForm);
     promise.then((res) => {
-      setDisableButton(true);
       console.log(res.data);
       navigate("/");
     });
     promise.catch((err) => {
       console.log(err.response.data);
       alert(err.response.data.message);
-      setDisableButton(true);
+      setDisableButton(false);
       setDisableInput(false);
     });
   }
@@ -105,7 +105,6 @@ export default function Register() {
       <button
         type="submit"
         disabled={disableButton}
-        onClick={() => setDisableInput(true)}
         data-test="signup-btn"
       >
         {disableInput === true ? (

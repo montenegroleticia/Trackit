@@ -30,6 +30,9 @@ export default function Form() {
   function login(e) {
     e.preventDefault();
 
+    setDisableInput(true);
+    setDisableButton(true);
+
     const promise = axios.post(`${URL_BASE}/auth/login`, loginForm);
     promise.then((res) => {
       console.log(res.data);
@@ -41,7 +44,7 @@ export default function Form() {
     });
     promise.catch((err) => {
       alert(err.response.data.message);
-      setDisableButton(true);
+      setDisableButton(false);
       setDisableInput(false);
     });
   }
@@ -72,7 +75,6 @@ export default function Form() {
       <button
         type="submit"
         disabled={disableButton}
-        onClick={() => setDisableInput(true)}
         data-test="login-btn"
       >
         {disableInput === true ? (
