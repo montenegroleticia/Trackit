@@ -18,8 +18,7 @@ export default function Today() {
   function formatDate(date) {
     const options = {
       weekday: "long",
-      year: "numeric",
-      month: "long",
+      month: "numeric",
       day: "numeric",
     };
     const locale = "pt-BR";
