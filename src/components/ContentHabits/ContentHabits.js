@@ -1,7 +1,30 @@
 import { WeekButtons, Habit, Trash } from "./styled";
 import { BsTrash } from "react-icons/bs";
+import axios from "axios";
+import { URL_BASE } from "../../constants/url";
+import { Token } from "../../Hook/context";
+import { useContext } from "react";
 
-export default function ContentHabitsAdd({ listHabits, deleteHabit }) {
+export default function ContentHabitsAdd({ listHabits }) {
+  const { token } = useContext(Token);
+
+  function deleteHabit(id) {
+    const confim = window.confirm("Deseja excluir esse ítem permanentemente?");
+    if (confim) {
+      const config = {
+        headers: {
+          Authorization: `Bearer ${token}`,
+        },
+      };
+      const promise = axios.delete(`${URL_BASE}/habits/${id}`, config);
+      promise.then((res) => {
+        console.log(res.data);
+        window.location.reload();
+      });
+      promise.catch((err) => alert(err.response.data.message));
+    }
+  }
+
   return (
     <>
       {listHabits.map((h) => (

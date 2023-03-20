@@ -73,31 +73,12 @@ export default function Habits() {
     const promise = axios.post(`${URL_BASE}/habits`, habitForm, config);
     promise.then((res) => {
       console.log(res.data);
-      setAddHabit(false);
       window.location.reload();
     });
     promise.catch((err) => {
       setDisableInput(false);
       alert(err.response.data.message);
     });
-  }
-
-  function deleteHabit(id) {
-    const confim = window.confirm("Deseja excluir esse ítem permanentemente?");
-    if (confim) {
-      const config = {
-        headers: {
-          Authorization: `Bearer ${token}`,
-        },
-      };
-      const promise = axios.delete(`${URL_BASE}/habits/${id}`, config);
-      promise.then((res) => {
-        console.log(res.data);
-        setAddHabit(false);
-        window.location.reload();
-      });
-      promise.catch((err) => alert(err.response.data.message));
-    }
   }
 
   useEffect(() => {
@@ -264,7 +245,7 @@ export default function Habits() {
             ""
           )}
           {listHabits && listHabits.length > 0 ? (
-            <ContentHabits listHabits={listHabits} deleteHabit={deleteHabit} />
+            <ContentHabits listHabits={listHabits} />
           ) : (
             <p>
               Você não tem nenhum hábito cadastrado ainda. Adicione um hábito
