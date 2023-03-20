@@ -25,6 +25,9 @@ export const FormLogin = styled.form`
     padding: 8px;
   }
   button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     background: #52b6ff;
     border-radius: 5px;
     width: 303px;

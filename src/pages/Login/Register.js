@@ -108,7 +108,7 @@ export default function Register() {
         onClick={() => setDisableInput(true)}
         data-test="signup-btn"
       >
-        {setDisableInput === true ? (
+        {disableInput === true ? (
           <ThreeDots
             height="80"
             width="80"

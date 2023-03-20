@@ -5,6 +5,7 @@ export const Content = styled.div`
   margin-bottom: 70px;
   width: 100vw;
   min-height: 527px;
+  max-height: calc(100vh - 527px);
   background: #f2f2f2;
 `;
 export const Header = styled.div`
@@ -42,11 +43,13 @@ export const Header = styled.div`
   }
 `;
 export const Body = styled.div`
+  display: flex;
+  flex-direction: column;
+  align-items: center;
   margin-top: 28px;
   margin-left: 17px;
   margin-right: 20px;
   p {
-    margin-top: 29px;
     font-family: "Lexend Deca";
     font-style: normal;
     font-weight: 400;
@@ -63,6 +66,7 @@ export const AddHabit = styled.form`
   display: flex;
   flex-direction: column;
   justify-content: space-evenly;
+  margin-bottom: 29px;
   input {
     margin-left: 15px;
     width: 290px;

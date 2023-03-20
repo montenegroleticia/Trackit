@@ -75,7 +75,7 @@ export default function Form() {
         onClick={() => setDisableInput(true)}
         data-test="login-btn"
       >
-        {setDisableInput === true ? (
+        {disableInput === true ? (
           <ThreeDots
             height="80"
             width="80"
