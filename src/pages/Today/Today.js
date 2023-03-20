@@ -53,8 +53,8 @@ export default function Today() {
       <Content>
         <Header>
           <h2 data-test="today"> {formatDate(today)}</h2>
-          <p data-test="today-counter">
-            {listHabitsToday && listHabitsToday.length > 0
+          <p data-test="today-counter" className={percentege > 0 ? 'green' : ''}>
+            { percentege > 0
               ? `${percentege} % dos hábitos concluídos`
               : `Nenhum hábito concluído ainda`}
           </p>

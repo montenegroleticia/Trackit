@@ -30,6 +30,9 @@ export const Header = styled.div`
     line-height: 22px;
     color: #666666;
   }
+  .green{
+    color: #8FC549;
+  }
 `;
 export const Body = styled.div`
   display: flex;
