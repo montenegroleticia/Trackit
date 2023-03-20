@@ -92,7 +92,7 @@ export const WeekButtons = styled.div`
     width: 30px;
     height: 30px;
     background: #ffffff;
-    border: 1px solid #CFCFCF;
+    border: 1px solid #cfcfcf;
     border-radius: 5px;
     font-family: "Lexend Deca";
     font-style: normal;
@@ -101,9 +101,9 @@ export const WeekButtons = styled.div`
     line-height: 25px;
     color: #dbdbdb;
   }
-  .gray{
-    background-color: #CFCFCF;
-    color: #FFFFFF;
+  .gray {
+    background-color: #cfcfcf;
+    color: #ffffff;
   }
 `;
 export const Choices = styled.div`

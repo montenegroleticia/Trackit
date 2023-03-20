@@ -102,11 +102,7 @@ export default function Register() {
         required
         data-test="user-image-input"
       />
-      <button
-        type="submit"
-        disabled={disableButton}
-        data-test="signup-btn"
-      >
+      <button type="submit" disabled={disableButton} data-test="signup-btn">
         {disableInput === true ? (
           <ThreeDots
             height="80"

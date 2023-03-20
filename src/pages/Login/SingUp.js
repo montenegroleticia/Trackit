@@ -72,11 +72,7 @@ export default function Form() {
         disabled={disableInput}
         data-test="password-input"
       />
-      <button
-        type="submit"
-        disabled={disableButton}
-        data-test="login-btn"
-      >
+      <button type="submit" disabled={disableButton} data-test="login-btn">
         {disableInput === true ? (
           <ThreeDots
             height="80"

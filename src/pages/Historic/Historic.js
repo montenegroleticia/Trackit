@@ -25,8 +25,8 @@ const Content = styled.div`
   background: #f2f2f2;
 `;
 const Header = styled.div`
-display: flex;
-flex-direction: column;
+  display: flex;
+  flex-direction: column;
   h2 {
     margin-top: 28px;
     margin-left: 17px;

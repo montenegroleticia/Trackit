@@ -51,7 +51,7 @@ export default function ContentHabitsAdd({ listHabits, deleteHabit }) {
               S
             </button>
             <button
-              className={h.days.includes(6)  ? "gray buttons" : "buttons"}
+              className={h.days.includes(6) ? "gray buttons" : "buttons"}
               data-test="habit-day"
             >
               S

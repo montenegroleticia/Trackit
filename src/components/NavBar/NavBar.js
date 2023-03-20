@@ -1,6 +1,6 @@
 import Nav from "./styled";
 import logoNav from "../../img/TrackIt.png";
-import { ImageContext } from '../../Hook/context';
+import { ImageContext } from "../../Hook/context";
 import { useContext, useEffect } from "react";
 
 export default function NavBar() {
@@ -12,7 +12,7 @@ export default function NavBar() {
   }, [setProfilerPic]);
 
   return (
-    <Nav  data-test="header">
+    <Nav data-test="header">
       <img className="logo" alt="logoNav" src={logoNav} />
       <img className="profilerPic" alt="profilerPic" src={profilerPic} />
     </Nav>
