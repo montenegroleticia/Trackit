@@ -15,8 +15,13 @@ export default function Today() {
   const today = new Date();
 
   function formatDate(date) {
-    const options = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric' };
-    const locale = 'pt-BR';
+    const options = {
+      weekday: "long",
+      year: "numeric",
+      month: "long",
+      day: "numeric",
+    };
+    const locale = "pt-BR";
     return date.toLocaleDateString(locale, options);
   }
 
@@ -27,27 +32,30 @@ export default function Today() {
       },
     };
 
-    if (habitsChek.includes(id)) {
-      const updateHabitsCheck = habitsChek.filter((habit) => habit !== id);
-      setHabitsChek(updateHabitsCheck);
-      console.log(updateHabitsCheck);
-    
-      const promise = axios.post(`${URL_BASE}/habits/${id}/uncheck`, {}, config);
-      promise.then((res) => console.log(res.data));
-      promise.catch((err) => alert(err.response.data.message));
-
-    } else {
+    if ( habitsChek && !habitsChek.includes(id)) {
       const updateHabitsCheck = [...habitsChek, id];
       setHabitsChek(updateHabitsCheck);
-    
+      console.log(updateHabitsCheck);
+
+      const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
+      promise.then((res) => {
+        console.log(res.data);
+        window.location.reload();
+      });
+      promise.catch((err) => alert(err.response.data.message));
+    } else {
+      const updateHabitsCheck = habitsChek.filter((habit) => habit !== id);
+      setHabitsChek(updateHabitsCheck);
+
       const promise = axios.post(
-        `${URL_BASE}/habits/${id}/check`,
+        `${URL_BASE}/habits/${id}/uncheck`,
         {},
         config
       );
-      promise.then((res) => {console.log(res.data);
+      promise.then((res) => {
+        console.log(res.data);
         window.location.reload();
-    });
+      });
       promise.catch((err) => alert(err.response.data.message));
     }
   }

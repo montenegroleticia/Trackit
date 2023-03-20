@@ -4,7 +4,7 @@ export const Content = styled.div`
   margin-top: 70px;
   margin-bottom: 70px;
   width: 100vw;
-  height: 527px;
+  min-height: 527px;
   background: #f2f2f2;
 `;
 export const Header = styled.div`
