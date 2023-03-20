@@ -51,8 +51,8 @@ export const CardHabit = styled.div`
   justify-content: space-around;
   margin-bottom: 10px;
   button {
-    width: 69px;
-    height: 69px;
+    max-width: 69px;
+    max-height: 69px;
     border: 1px solid #e7e7e7;
     border-radius: 5px;
     color: #ffffff;
