@@ -5,6 +5,7 @@ export const Content = styled.div`
   margin-bottom: 70px;
   width: 100vw;
   background: #f2f2f2;
+  min-height: 527px;
   height: calc(100vh - 140px);
   overflow: scroll;
 `;
