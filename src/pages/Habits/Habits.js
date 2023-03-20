@@ -21,6 +21,7 @@ export default function Habits() {
   const [isLoadingToken, setIsLoadingToken] = useState(true);
   const { token, setToken } = useContext(Token);
   const [isNameValid, setIsNameValid] = useState(true);
+  const [disableInput, setDisableInput] = useState(false);
 
   function handleHabitForm(e) {
     const { name, value } = e.target;
@@ -53,6 +54,13 @@ export default function Habits() {
       return;
     }
 
+    if(habitForm.days.length === 0){
+      alert("Selecione pelo menos um dia da semana");
+      return;
+    }
+
+    setDisableInput(true);
+
     const config = {
       headers: {
         Authorization: `Bearer ${token}`,
@@ -65,7 +73,9 @@ export default function Habits() {
       setAddHabit(false);
       window.location.reload();
     });
-    promise.catch((err) => alert(err.response.data.message));
+    promise.catch((err) => { 
+      setDisableInput(false);
+      alert(err.response.data.message)});
   }
 
   function deleteHabit(id) {
@@ -130,6 +140,7 @@ export default function Habits() {
                 name="name"
                 value={habitForm.name}
                 onChange={handleHabitForm}
+                disabled={disableInput}
                 required
                 data-test="habit-name-input"
               />
@@ -217,6 +228,7 @@ export default function Habits() {
                 <button
                   type="submit"
                   className="save"
+                  disabled={disableInput}
                   data-test="habit-create-save-btn"
                 >
                   Salvar
