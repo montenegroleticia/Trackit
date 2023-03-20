@@ -49,7 +49,7 @@ export const CardHabit = styled.div`
   display: flex;
   align-items: center;
   justify-content: space-around;
-  margin-bottom: 28px;
+  margin-bottom: 10px;
   button {
     width: 69px;
     height: 69px;

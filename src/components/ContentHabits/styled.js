@@ -140,6 +140,7 @@ export const Habit = styled.div`
   border-radius: 5px;
   display: flex;
   flex-direction: column;
+  margin-bottom: 10px;
 `;
 export const Trash = styled.div`
   display: flex;
