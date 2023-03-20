@@ -40,6 +40,7 @@ export const Header = styled.div`
     align-items: center;
     justify-content: center;
     border: transparent;
+    text-align: center;
   }
 `;
 export const Body = styled.div`
@@ -100,6 +101,9 @@ export const WeekButtons = styled.div`
     font-size: 20px;
     line-height: 25px;
     color: #dbdbdb;
+    display: flex;
+    justify-content: center;
+    align-items: center;
   }
   .gray {
     background-color: #cfcfcf;
