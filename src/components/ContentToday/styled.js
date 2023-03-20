@@ -31,8 +31,8 @@ export const Header = styled.div`
     line-height: 22px;
     color: #666666;
   }
-  .green{
-    color: #8FC549;
+  .green {
+    color: #8fc549;
   }
 `;
 export const Body = styled.div`
@@ -78,5 +78,11 @@ export const Infos = styled.div`
     font-size: 13px;
     line-height: 16px;
     color: #666666;
+  }
+`;
+export const Sequence = styled.div`
+  display: flex;
+  .green {
+    color: #8fc549;
   }
 `;

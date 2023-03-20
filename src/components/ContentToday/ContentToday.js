@@ -1,5 +1,5 @@
 import { BsCheck } from "react-icons/bs";
-import { CardHabit, Infos } from "../ContentToday/styled";
+import { CardHabit, Infos, Sequence } from "../ContentToday/styled";
 import { URL_BASE } from "../../constants/url";
 import axios from "axios";
 import { Percentege, Token } from "../../Hook/context";
@@ -53,12 +53,22 @@ export default function ContentToday({ listHabitsToday }) {
         <CardHabit data-test="today-habit-container" key={t.id}>
           <Infos>
             <h2 data-test="today-habit-name">{t.name}</h2>
-            <p data-test="today-habit-sequence">
-              Sequência atual: {t.currentSequence} dias
-            </p>
-            <p data-test="today-habit-record">
-              Seu recorde: {t.highestSequence} dias
-            </p>
+            <Sequence>
+              <p data-test="today-habit-sequence">Sequência atual:</p>
+              <p className={t.done === true ? "green" : ""}>
+                {t.currentSequence} dias
+              </p>
+            </Sequence>
+            <Sequence>
+              <p data-test="today-habit-record">Seu recorde:</p>
+              <p
+                className={
+                  t.currentSequence === t.highestSequence ? "green" : ""
+                }
+              >
+                {t.highestSequence} dias
+              </p>
+            </Sequence>
           </Infos>
           <button
             onClick={() => doneHabit(t.done, t.id)}
