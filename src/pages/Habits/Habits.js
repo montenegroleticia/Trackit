@@ -34,9 +34,15 @@ export default function Habits() {
   }
 
   function addDay(day) {
-    const addDays = [...habitForm.days, day];
-    const update = { ...habitForm, days: addDays };
-    setHabitForm(update);
+    if (!habitForm.days.includes(day)) {
+      const addDays = [...habitForm.days, day];
+      const update = { ...habitForm, days: addDays };
+      setHabitForm(update);
+    } else {
+      const filterHabitDay = habitForm.days.filter((d) => d !== day);
+      const update = { ...habitForm, days: filterHabitDay };
+      setHabitForm(update);
+    }
   }
 
   function sendForm(e) {
@@ -130,7 +136,7 @@ export default function Habits() {
               <WeekButtons>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(0) ? "gray buttons" : "buttons"}
                   onClick={() => addDay(0)}
                   data-test="habit-day"
                 >
@@ -138,7 +144,7 @@ export default function Habits() {
                 </button>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(1)  ? "gray buttons" : "buttons"}
                   onClick={() => addDay(1)}
                   data-test="habit-day"
                 >
@@ -146,7 +152,7 @@ export default function Habits() {
                 </button>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(2)  ? "gray buttons" : "buttons"}
                   onClick={() => addDay(2)}
                   data-test="habit-day"
                 >
@@ -154,7 +160,7 @@ export default function Habits() {
                 </button>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(3) ? "gray buttons" : "buttons"}
                   onClick={() => addDay(3)}
                   data-test="habit-day"
                 >
@@ -162,7 +168,7 @@ export default function Habits() {
                 </button>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(4) ? "gray buttons" : "buttons"}
                   onClick={() => addDay(4)}
                   data-test="habit-day"
                 >
@@ -170,7 +176,7 @@ export default function Habits() {
                 </button>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(5) ? "gray buttons" : "buttons"}
                   onClick={() => addDay(5)}
                   data-test="habit-day"
                 >
@@ -178,7 +184,7 @@ export default function Habits() {
                 </button>
                 <button
                   type="button"
-                  className="buttons"
+                  className={habitForm.days.includes(6) ? "gray buttons" : "buttons"}
                   onClick={() => addDay(6)}
                   data-test="habit-day"
                 >
