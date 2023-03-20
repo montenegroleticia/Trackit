@@ -18,6 +18,7 @@ export default function ContentToday({ listHabitsToday }) {
       habitsCompleted > 0
         ? Math.round((habitsCompleted / totalHabits) * 100)
         : 0;
+    localStorage.setItem("percentege", JSON.stringify(updatePercentege));
     setPercentege(updatePercentege);
   }, [listHabitsToday, setPercentege]);
 
@@ -55,19 +56,15 @@ export default function ContentToday({ listHabitsToday }) {
         <CardHabit data-test="today-habit-container" key={t.id}>
           <Infos>
             <h2 data-test="today-habit-name">{t.name}</h2>
-            <Sequence>
-              <p data-test="today-habit-sequence">Sequência atual:</p>
-              <p
-                data-test="today-habit-sequence"
-                className={t.done === true ? "green" : ""}
-              >
+            <Sequence data-test="today-habit-sequence">
+              <p>Sequência atual:</p>
+              <p className={t.done === true ? "green" : ""}>
                 {t.currentSequence} dias
               </p>
             </Sequence>
-            <Sequence>
-              <p data-test="today-habit-record">Seu recorde:</p>
+            <Sequence data-test="today-habit-record">
+              <p>Seu recorde:</p>
               <p
-                data-test="today-habit-record"
                 className={
                   t.currentSequence === t.highestSequence &&
                   t.highestSequence !== 0
