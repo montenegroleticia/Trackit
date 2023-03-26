@@ -63,7 +63,7 @@ export default function Form() {
       />
       <input
         placeholder="senha"
-        type="password"
+        type="text"
         name="password"
         value={loginForm.password}
         onChange={handleForm}

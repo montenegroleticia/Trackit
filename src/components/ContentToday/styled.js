@@ -67,7 +67,7 @@ export const CardHabit = styled.div`
   button {
     height: 50px; 
     width: 50px;
-    font-size: 24px; 
+    font-size: 50px; 
   }
 }
 `;
