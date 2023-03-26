@@ -63,9 +63,6 @@ export const CardHabit = styled.div`
     align-items: center;
     text-align: center;
   }
-  ion-icon {
-    color: pink;
-  }
   @media only screen and (max-width: 768px) {
   button {
     height: 50px; 
