@@ -32,7 +32,6 @@ export default function ContentToday({ listHabitsToday }) {
     if (!done) {
       const promise = axios.post(`${URL_BASE}/habits/${id}/check`, {}, config);
       promise.then((res) => {
-        console.log(res.data);
         window.location.reload();
       });
       promise.catch((err) => alert(err.response.data.message));
@@ -43,7 +42,6 @@ export default function ContentToday({ listHabitsToday }) {
         config
       );
       promise.then((res) => {
-        console.log(res.data);
         window.location.reload();
       });
       promise.catch((err) => alert(err.response.data.message));

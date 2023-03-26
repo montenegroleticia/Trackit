@@ -45,7 +45,6 @@ export default function Today() {
       const promise = axios.get(`${URL_BASE}/habits/today`, config);
       promise.then((res) => {
         setListHabitsToday(res.data);
-        console.log(res.data);
       });
       promise.catch((err) => console.log(err.response.data.message));
     }

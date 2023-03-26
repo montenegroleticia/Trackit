@@ -42,11 +42,9 @@ export default function Register() {
 
     const promise = axios.post(`${URL_BASE}/auth/sign-up`, registerForm);
     promise.then((res) => {
-      console.log(res.data);
       navigate("/");
     });
     promise.catch((err) => {
-      console.log(err.response.data);
       alert(err.response.data.message);
       setDisableButton(false);
       setDisableInput(false);

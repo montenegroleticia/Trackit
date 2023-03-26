@@ -35,7 +35,6 @@ export default function Form() {
 
     const promise = axios.post(`${URL_BASE}/auth/login`, loginForm);
     promise.then((res) => {
-      console.log(res.data);
       localStorage.setItem("token", JSON.stringify(res.data.token));
       setToken(res.data.token);
       localStorage.setItem("ImageContext", JSON.stringify(res.data.image));

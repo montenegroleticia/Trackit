@@ -63,6 +63,13 @@ export const CardHabit = styled.div`
     align-items: center;
     text-align: center;
   }
+  @media only screen and (max-width: 768px) {
+  button {
+    height: 50px; 
+    width: 50px; 
+    font-size: 24px; 
+  }
+}
 `;
 export const Infos = styled.div`
   h2 {

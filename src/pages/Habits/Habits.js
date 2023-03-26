@@ -72,7 +72,6 @@ export default function Habits() {
 
     const promise = axios.post(`${URL_BASE}/habits`, habitForm, config);
     promise.then((res) => {
-      console.log(res.data);
       window.location.reload();
     });
     promise.catch((err) => {
@@ -96,7 +95,6 @@ export default function Habits() {
       const promise = axios.get(`${URL_BASE}/habits`, config);
       promise.then((res) => {
         setListHabits(res.data);
-        console.log(res.data);
       });
       promise.catch((err) => console.log(err.response.data.message));
     }
