@@ -63,12 +63,14 @@ export const CardHabit = styled.div`
     align-items: center;
     text-align: center;
   }
+  ion-icon {
+    color: pink;
+  }
   @media only screen and (max-width: 768px) {
   button {
     height: 50px; 
-    width: 50px; 
-    color: #ffffff;
-    font-size: 100px; 
+    width: 50px;
+    font-size: 24px; 
   }
 }
 `;
