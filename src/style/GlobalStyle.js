@@ -8,6 +8,7 @@ const GlobalStyle = createGlobalStyle`
         justify-content: center;
         align-items: center;
         flex-direction: column;
+        padding-top: env(safe-area-inset-top);
 }
 `;
 
