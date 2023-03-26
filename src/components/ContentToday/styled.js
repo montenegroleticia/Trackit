@@ -65,8 +65,9 @@ export const CardHabit = styled.div`
   }
   @media only screen and (max-width: 768px) {
   button {
-    height: 69px; 
-    width: 69px; 
+    height: 50px; 
+    width: 50px; 
+    color: #ffffff;
     font-size: 100px; 
   }
 }
