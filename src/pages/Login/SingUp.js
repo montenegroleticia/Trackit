@@ -16,7 +16,7 @@ export default function Form() {
   const navigate = useNavigate();
 
   useEffect(() => {
-    if (loginForm.email && loginForm.password > 0) {
+    if (loginForm.email && loginForm.password) {
       setDisableButton(false);
     } else {
       setDisableButton(true);
@@ -63,7 +63,7 @@ export default function Form() {
       />
       <input
         placeholder="senha"
-        type="text"
+        type="password"
         name="password"
         value={loginForm.password}
         onChange={handleForm}
