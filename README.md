@@ -13,6 +13,8 @@ This project has a login screen for the users that has a register:
   </a>
 </div>
 
+</br>
+
 A register screen for the ones that dosen't have a register yeat:
 
 </br>
@@ -24,6 +26,8 @@ A register screen for the ones that dosen't have a register yeat:
   </a>
 </div>
 
+</br>
+
 A today page that shows when the user login:
 
 </br>
@@ -34,6 +38,8 @@ A today page that shows when the user login:
     <img alt="today" src="./img/today2.png" width="250"/>
   </a>
 </div>
+
+</br>
 
 A habit page to add and delete habits:
 
@@ -54,6 +60,8 @@ A habit page to add and delete habits:
     <img alt="habit" src="./img/habit4.png" width="250"/>
   </a>
 </div>
+
+</br>
 
 A historic page that in the future will be updated with more features has a calendar with the habits track:
 
