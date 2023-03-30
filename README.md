@@ -1,74 +1,52 @@
 <h2 align="center"> TrackIt </h2>
-This project is a complete habit tracking application! With the right to register, login and many libraries.
-
+This project is a complete habit tracking application! With registration, login, and many other features.
 <h3>Description</h3>
-This project has a login screen for the users that has a register:
-
-</br>
-
+This project has a login screen for registered users:
 <div style="display:flex;justify-content:center;">
   <a href="https://projeto11-trackit-nine-tan.vercel.app/">
-    <img alt="login" src="./img/login.png" style="margin-right:10px;" width="250"/>
-    <img alt="login" src="./img/login2.png" width="250"/>
+    <img max-width="250px" height="auto" alt="login" src="./img/login.png" style="margin-right:10px;" width="250"/>
+    <img max-width="250px" height="auto" alt="login" src="./img/login2.png" width="250"/>
   </a>
 </div>
-
 </br>
-
-A register screen for the ones that dosen't have a register yeat:
-
-</br>
+A registration screen for new users:
 
 <div style="display:flex;justify-content:center;">
   <a href="https://projeto11-trackit-nine-tan.vercel.app/">
-    <img alt="register" src="./img/register.png" style="margin-right:10px;" width="250"/>
-    <img alt="register" src="./img/register2.png" width="250"/>
+    <img max-width="250px" height="auto" alt="register" src="./img/register.png" style="margin-right:10px;" width="250"/>
+    <img max-width="250px" height="auto" alt="register" src="./img/register2.png" width="250"/>
   </a>
 </div>
-
 </br>
-
-A today page that shows when the user login:
-
-</br>
+A "Today" page that displays the user's habits for the current day:
 
 <div style="display:flex;justify-content:center;">
   <a href="https://projeto11-trackit-nine-tan.vercel.app/">
-    <img alt="today" src="./img/today.png" style="margin-right:10px;" width="250"/>
-    <img alt="today" src="./img/today2.png" width="250"/>
+    <img max-width="250px" height="auto" alt="today" src="./img/today.png" style="margin-right:10px;" width="250"/>
+    <img max-width="250px" height="auto" alt="today" src="./img/today2.png" width="250"/>
   </a>
 </div>
-
 </br>
-
-A habit page to add and delete habits:
-
-</br>
+A "Habits" page to add and delete habits:
 
 <div style="display:flex;justify-content:center;">
   <a href="https://projeto11-trackit-nine-tan.vercel.app/">
-    <img alt="habit" src="./img/habit.png" style="margin-right:10px;" width="250"/>
-    <img alt="habit" src="./img/habit2.png" width="250"/>
+    <img max-width="250px" height="auto" alt="habit" src="./img/habit.png" style="margin-right:10px;" width="250"/>
+    <img max-width="250px" height="auto" alt="habit" src="./img/habit2.png" width="250"/>
   </a>
 </div>
-
 </br>
-
 <div style="display:flex;justify-content:center;">
   <a href="https://projeto11-trackit-nine-tan.vercel.app/">
-    <img alt="habit" src="./img/habit3.png" style="margin-right:10px;" width="250"/>
-    <img alt="habit" src="./img/habit4.png" width="250"/>
+    <img max-width="250px" height="auto" alt="habit" src="./img/habit3.png" style="margin-right:10px;" width="250"/>
+    <img max-width="250px" height="auto" alt="habit" src="./img/habit4.png" width="250"/>
   </a>
 </div>
-
 </br>
-
-A historic page that in the future will be updated with more features has a calendar with the habits track:
-
-</br>
+A "Historic" page that will be updated with more features in the future. It will display a calendar with the user's habit tracking data:
 
 <div style="display:flex;justify-content:center;">
   <a href="https://projeto11-trackit-nine-tan.vercel.app/">
-    <img alt="historic" src="./img/historic.png" style="margin-right:10px;" width="250"/>
+    <img max-width="250px" height="auto" alt="historic" src="./img/historic.png" style="margin-right:10px;" width="250"/>
   </a>
 </div>
