@@ -1,4 +1,4 @@
-<h2 align="center"> TrackIt </h2>
+TrackIt
 This project is a complete habit tracking application! With registration, login, and many other features.
 <h3>Tools</h3>
 <div>
